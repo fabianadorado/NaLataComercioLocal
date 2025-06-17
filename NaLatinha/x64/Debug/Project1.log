@@ -1,0 +1,9 @@
+﻿  auxiliar.cpp
+  Cliente.cpp
+  Loja.cpp
+  NaLatinha.cpp
+  produto.cpp
+  venda.cpp
+C:\Users\gicel\source\repos\fabianadorado\NaLataComercioLocal\venda.cpp(32,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Project1.vcxproj -> C:\Users\gicel\source\repos\fabianadorado\NaLataComercioLocal\x64\Debug\NaLatinha.exe
