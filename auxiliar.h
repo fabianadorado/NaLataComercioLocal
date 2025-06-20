@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
+using namespace std;
 
-int lernumero(const std::string& mensagem);
-float lerFloatPositivo(const std::string& mensagem);
-std::string toLower(const std::string& str);
+int lernumero(const string& mensagem);
+float lerFloatPositivo(const string& mensagem);
+string toLower(const string& str);

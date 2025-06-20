@@ -1,0 +1,40 @@
+# Arquivos de build
+*.obj
+*.exe
+*.pdb
+*.idb
+*.ilk
+*.log
+
+# Diretórios de build
+/Debug/
+/Release/
+/x64/
+/x86/
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Backups
+*~
+*.bak
+
+# Git
+*.orig
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Outros
+*.ipch
+*.db
+*.opendb
+*.tlog
