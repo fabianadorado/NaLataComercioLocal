@@ -1,63 +1,40 @@
-# ============================
-# IGNORAR ARQUIVOS C++ / VS
-# ============================
-
-# Compilados (C++)
+# Arquivos de build
 *.obj
-*.o
 *.exe
-*.dll
-*.lib
 *.pdb
 *.idb
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Arquivos de log
+*.ilk
 *.log
 
-# Backups temporários
+# Diret�rios de build
+/Debug/
+/Release/
+/x64/
+/x86/
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Backups
 *~
 *.bak
 
-# Arquivos de índice e cache do Visual Studio
-.vs/
-.vscode/
-*.suo
-*.sdf
-*.opensdf
-*.VC.db
-*.VC.VC.opendb
-
-# Pastas de build
-Debug/
-Release/
-x64/
-x86/
-ipch/
-GeneratedFiles/
-
-# Build system temporários
-*.cache
-CMakeFiles/
-CMakeCache.txt
-Makefile
-cmake_install.cmake
-
-# Arquivos de sistema
-Thumbs.db
-desktop.ini
-.DS_Store
-
-# Git interno (se algum diff ou config for salvo)
+# Git
 *.orig
 
-# ============================
-# OPCIONAL - Ignorar binários
-# ============================
-# bin/
-# build/
+# Arquivos tempor�rios
+*.tmp
+*.temp
 
-
+# Outros
+*.ipch
+*.db
+*.opendb
+*.tlog
