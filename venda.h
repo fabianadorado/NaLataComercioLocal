@@ -1,40 +1,65 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
+#include <iomanip>
+#include <sstream> 
+#include <random>
+#include <chrono>
+#include "Cliente.h"
+
 using namespace std;
 
 struct ItemVenda {
     int numeroLinha;
     string nomeProduto;
     int quantidade;
-    float precoSemIVA;
-    float iva;
-    float totalComIVA;
+    double precoSemIVA;
+    double iva;
+    double totalComIVA;
 
-    ItemVenda(int linha, const string& nomeProduto, int quantidade, float precoUnit);
+    ItemVenda(int linha, const string& nomeProduto, int quantidade, double precoUnit);
 };
 
 class Venda {
 private:
-    int numeroFatura;
+    static mt19937 gerador;  // Gerador Mersenne Twister
+    static uniform_int_distribution<int> distribuidor;  // Distribuição
+
     int idCliente;
+    string numeroFatura;
     vector<ItemVenda> itens;
-    float valorEntregue;
-    float troco;
+    double valorEntregue;
+    double troco;
     bool gratis = false;
 
 public:
     Venda();
-    Venda(int numeroFatura, int idCliente);
+    explicit Venda(int idCliente);  // explicit previne conversões implícitas
 
-    void adicionarItem(const string& nomeProduto, int quantidade, float precoUnit);
-    void finalizarVenda(float valorEntregue);
-    void imprimirTalao();
+    void adicionarItem(const string& nomeProduto, int quantidade, double precoUnit);
+    void finalizarVenda(double valorEntregue);
+    void imprimirTalao() const;
 
-    int getNumeroFatura() const;
-    int getIdCliente() const;
-    float getValorTotal() const;
-    float getTroco() const;
+    string getNumeroFatura() const
+    {
+        return numeroFatura;
+    }
+
+    int getIdCliente() const
+    {
+        return idCliente;
+    }
+
+    double getValorTotal() const;
+    double getTroco() const 
+    {
+        return troco;
+    }
+
+    bool isGratis() const 
+    { 
+        return gratis; 
+    }
 
     const vector<ItemVenda>& getItens() const
     {

@@ -1,4 +1,4 @@
-#include "cliente.h"
+Ôªø#include "cliente.h"
 #include <string>
 #include <sstream>
 using namespace std;
@@ -6,12 +6,12 @@ using namespace std;
 
 int Cliente::proximoCliente = 1;
 
-// Construtor padr„o
+// Construtor padr√£o
 Cliente::Cliente()
     : idCliente(proximoCliente++), nome(""), telefone(""), morada(""), totalComprado(0.0f) {
 }
 
-// Construtor com par‚metros
+// Construtor com par√¢metros
 Cliente::Cliente(string nome, string telefone, string morada, float totalComprado)
     : idCliente(proximoCliente++), nome(nome), telefone(telefone), morada(morada), totalComprado(totalComprado) {
 }

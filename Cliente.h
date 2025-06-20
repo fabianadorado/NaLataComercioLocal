@@ -1,10 +1,10 @@
-#pragma once
+﻿#pragma once
 
 #include <iostream>
 #include <string>
 #include <sstream>
 
-using std::string;
+using namespace std;
 
 class Cliente {
 private:
@@ -17,7 +17,7 @@ private:
 
 public:
     Cliente();
-    Cliente(string nome, string telefone, string morada, float totalComprado = 0.0f);
+    Cliente(string nome, string telefone, string morada, float totalComprado);
 
     // Getters
     int getIdCliente() const;
@@ -32,7 +32,7 @@ public:
     void setTelefone(string telefone);
     void setMorada(string morada);
 
-    // Outros m�todos
+    // Outros métodos
     void adicionarCompra(float valor);
     string toString() const;
 };
