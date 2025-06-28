@@ -690,36 +690,7 @@ void Loja::listarHistoricoVendas() const {
         cout << "Nenhuma venda registrada.\n";
     }
 }
-//void Loja::listarHistoricoVendas() const {
-//    cout << CYAN << "\n╔══════════════════════════════╗\n";
-//    cout << BOLD << "       HISTÓRICO DE VENDAS" << RESET << CYAN << "\n╚══════════════════════════════╝\n" << RESET;
-//    const int largura = 60;
-//    if (vendas.empty()) {
-//        cout << "Nenhuma venda registrada.\n";
-//        return;
-//    }
-//
-//    for (const Venda& venda : vendas) {
-//        cout << "\n" << string(largura, '-') << "\n";
-//        cout << "Fatura Nº: " << venda.getNumeroFatura()
-//            << " | Cliente ID: " << venda.getIdCliente() << "\n";
-//        cout << "Total da Venda: " << fixed << setprecision(2)
-//            << venda.getValorTotal() << "€\n";
-//
-//        cout << string(largura, '-') << "\n";
-//        cout << left << setw(25) << "Produto"
-//            << setw(10) << "Qtd"
-//            << setw(15) << "Total c/IVA" << "\n";
-//        cout << string(largura, '-') << "\n";
-//
-//        for (const ItemVenda& item : venda.getItens()) {
-//            cout << left << setw(25) << item.nomeProduto
-//                << setw(10) << item.quantidade
-//                << fixed << setprecision(2) << item.totalComIVA << "€\n";
-//        }
-//    }
-//
-//}
+
 
 
 void Loja::relatorioStock() const {
@@ -816,7 +787,7 @@ void Loja::relatorioTotalVendas() const {
     cout << CYAN << "\n╔══════════════════════════════════════════╗\n";
     cout << BOLD << "      RELATÓRIO TOTAL DE VENDAS" << RESET << CYAN << "\n╚══════════════════════════════════════════╝\n" << RESET;
 
-    double total = 0.0f;
+    double total = 0.0;
     map<string, int> vendasPorProduto;
     map<int, double> totalPorCliente;
 
@@ -845,7 +816,7 @@ void Loja::relatorioTotalVendas() const {
     }
 
     // 3. Lucro do produto mais vendido
-    double lucroMaisVendido = 0.0f;
+    double lucroMaisVendido = 0.0;
     for (const auto& p : produtos) {
         if (p.getNome() == maisVendido) {
             double precoCusto = p.getPrecoCusto();
@@ -894,7 +865,7 @@ void Loja::relatorioGraficoVendas() const {
     }
 
     // Descobre valor máximo
-    double maxValor = 0.0f;
+    double maxValor = 0.0;
     for (const auto& p : totalPorProduto) {
         if (p.second > maxValor)
             maxValor = p.second;
