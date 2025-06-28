@@ -1,5 +1,6 @@
-#include "produto.h"
+#include "Produto.h"
 #include <iostream>
+
 using namespace std;
 
 // Inicialização do ID estático
@@ -10,15 +11,18 @@ Produto::Produto() {
     id = proximoId++;
     nome = "";
     quantidade = 0;
-    precoCusto = 0.0f;
+    precoCusto = 0.0;
 }
 
 // Construtor com parâmetros
-Produto::Produto(int id, string nome, int quantidade, float precoCusto) {
+Produto::Produto(int id, string nome, int quantidade, double precoCusto) {
     this->id = id;
     this->nome = nome;
     this->quantidade = quantidade;
     this->precoCusto = precoCusto;
+    if (id >= proximoId) {
+        proximoId = id + 1;
+    }
 }
 
 // Getters
@@ -34,19 +38,19 @@ int Produto::getQuantidade() const {
     return quantidade;
 }
 
-float Produto::getPrecoCusto() const {
+double Produto::getPrecoCusto() const {
     return precoCusto;
 }
 
 // Preço de venda com margem (exemplo: 30% de lucro)
-float Produto::getPrecoVenda() const {
-    return precoCusto * 1.3f;
+double Produto::getPrecoVenda() const {
+    return precoCusto * 1.3;
 }
 
 // Preço de venda com IVA (23% aplicado sobre o preço de venda)
-float Produto::getPrecoVendaComIVA() const {
-    float precoVenda = getPrecoVenda();
-    return precoVenda * 1.23f;
+double Produto::getPrecoVendaComIVA() const {
+    double precoVenda = getPrecoVenda();
+    return precoVenda * 1.23;
 }
 
 // Estoque

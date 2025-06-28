@@ -1,10 +1,14 @@
-﻿#include "cliente.h"
+﻿#include "Cliente.h"
 #include <string>
 #include <sstream>
+#include <algorithm>
+#include <iomanip> 
+
 using namespace std;
 
 
 int Cliente::proximoCliente = 1;
+vector<int> Cliente::idsDisponiveis;
 
 // Construtor padrão
 Cliente::Cliente()
@@ -12,8 +16,21 @@ Cliente::Cliente()
 }
 
 // Construtor com parâmetros
-Cliente::Cliente(string nome, string telefone, string morada, float totalComprado)
+Cliente::Cliente(string nome, string telefone, string morada, double totalComprado)
     : idCliente(proximoCliente++), nome(nome), telefone(telefone), morada(morada), totalComprado(totalComprado) {
+    // Verifica se há IDs disponíveis para reutilização
+    if (!idsDisponiveis.empty()) {
+        idCliente = idsDisponiveis.back();
+        idsDisponiveis.pop_back();
+    }
+    else {
+        idCliente = proximoCliente++;
+    }
+
+    this->nome = nome;
+    this->telefone = telefone;
+    this->morada = morada;
+    this->totalComprado = totalComprado;
 }
 
 // Getters
@@ -33,7 +50,7 @@ string Cliente::getMorada() const {
     return morada;
 }
 
-float Cliente::getTotalComprado() const {
+double Cliente::getTotalComprado() const {
     return totalComprado;
 }
 
@@ -57,16 +74,23 @@ void Cliente::setMorada(string morada) {
     this->morada = morada;
 }
 
+// Método para liberar ID quando cliente é removido
+void Cliente::liberarId() {
+    idsDisponiveis.push_back(idCliente);
+    sort(idsDisponiveis.begin(), idsDisponiveis.end());
+}
 
-void Cliente::adicionarCompra(float valor) {
+void Cliente::adicionarCompra(double valor) {
     totalComprado += valor;
 }
 
+
 string Cliente::toString() const {
     stringstream dadosCliente;
-    dadosCliente << "ID: " << idCliente
-        << " | Nome: " << nome
-        << " | Telefone: " << telefone
-        << " | Morada: " << morada;
+    dadosCliente << left
+        << "ID: " << setw(6) << idCliente
+        << " | Nome: " << setw(20) << nome
+        << " | Telefone: " << setw(15) << telefone
+        << " | Morada: " << setw(30) << morada;
     return dadosCliente.str();
 }

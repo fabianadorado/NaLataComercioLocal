@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 
@@ -10,18 +11,18 @@ private:
     int id;
     string nome;
     int quantidade;
-    float precoCusto;
+    double precoCusto;
 
 public:
     Produto();
-    Produto(int id, string nome, int quantidade, float precoCusto);
+    Produto(int id, string nome, int quantidade, double precoCusto);
 
     int getId() const;
     string getNome() const;
     int getQuantidade() const;
-    float getPrecoCusto() const;
-    float getPrecoVenda() const;           // Preço com margem
-    float getPrecoVendaComIVA() const;     // Preço com margem + IVA
+    double getPrecoCusto() const;
+    double getPrecoVenda() const;           // Preço com margem
+    double getPrecoVendaComIVA() const;     // Preço com margem + IVA
 
     void adicionarStock(int qtd);
     void removerStock(int qtd);

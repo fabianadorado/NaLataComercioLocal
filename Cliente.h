@@ -3,28 +3,30 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include<vector>
 
 using namespace std;
 
 class Cliente {
 private:
     static int proximoCliente;
+    static vector<int> idsDisponiveis;
     int idCliente;
     string nome;
     string telefone;
     string morada;
-    float totalComprado;
+    double totalComprado;
 
 public:
     Cliente();
-    Cliente(string nome, string telefone, string morada, float totalComprado);
+    Cliente(string nome, string telefone, string morada, double totalComprado = 0.0f);
 
     // Getters
     int getIdCliente() const;
     string getNome() const;
     string getTelefone() const;
     string getMorada() const;
-    float getTotalComprado() const;
+    double getTotalComprado() const;
 
     // Setters
     void setIdCliente(int id);
@@ -33,6 +35,7 @@ public:
     void setMorada(string morada);
 
     // Outros métodos
-    void adicionarCompra(float valor);
+    void liberarId();
+    void adicionarCompra(double valor);
     string toString() const;
 };

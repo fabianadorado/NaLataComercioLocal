@@ -1,6 +1,4 @@
 #pragma once
-#ifndef MENU_H
-#define MENU_H
 
 class Menu {
 public:
@@ -9,6 +7,3 @@ public:
     int menuGerirClientes();
     int menuRelatorios();
 };
-
-#endif
-

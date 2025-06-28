@@ -34,31 +34,22 @@ private:
 
 public:
     Venda();
-    explicit Venda(int idCliente);  // explicit previne conversões implícitas
+    //explicit Venda(int idCliente);  // explicit previne conversões implícitas
+    Venda(int idCliente);
 
     void adicionarItem(const string& nomeProduto, int quantidade, double precoUnit);
     void finalizarVenda(double valorEntregue);
     void imprimirTalao() const;
 
-    string getNumeroFatura() const
-    {
-        return numeroFatura;
-    }
+    string getNumeroFatura() const;
 
-    int getIdCliente() const
-    {
-        return idCliente;
-    }
-
+    int getIdCliente() const;
     double getValorTotal() const;
-    double getTroco() const 
-    {
-        return troco;
-    }
+    double getTroco() const;
 
-    bool isGratis() const 
-    { 
-        return gratis; 
+    bool isGratis() const
+    {
+        return gratis;
     }
 
     const vector<ItemVenda>& getItens() const
