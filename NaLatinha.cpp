@@ -1,4 +1,4 @@
-#define NOMINMAX
+Ôªø#define NOMINMAX
 #include <iomanip>
 #include <string>
 #include <ctime>
@@ -11,6 +11,7 @@
 #include "menu.h"
 #include "auxiliar.h"
 
+
 #define RESET   "\033[0m"
 #define CYAN    "\033[36m"
 #define GREEN   "\033[32m"
@@ -21,7 +22,12 @@
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "");
+  
+    //SetConsoleOutputCP(CP_UTF8); // Habilita UTF-8 no terminal
+    //setlocale(LC_ALL, "");
+    //SetConsoleCP(CP_UTF8);
+    //system("chcp 65001 > nul");
+
     Menu menu;
     Loja loja;
 
@@ -36,7 +42,7 @@ int main() {
     loja.criarProduto("Monsters Black", 10, 1.80f);
     loja.criarProduto("Monsters White", 10, 1.99f);
 
-    loja.criarCliente("Jo„o Silva", "910520630", "Rua A");
+    loja.criarCliente("Jo√£o Silva", "910520630", "Rua A");
     loja.criarCliente("Maria Costa", "920987654", "Rua B");
 
     system("cls");
@@ -67,7 +73,7 @@ int main() {
                     cout << "Digite o Nome do Produto a Adicionar:\n ";
                     getline(cin, nome);
                     qtd = lernumero("Insira a Quantidade:\n ");
-                    cout << "Insira o PreÁo custo: ";
+                    cout << "Insira o Pre√ßo custo: ";
                     cin >> preco;
                     loja.criarProduto(nome, qtd, preco);
                     system("cls");
@@ -104,7 +110,7 @@ int main() {
                     continue;
                 }
                 default:
-                    cout << RED << "OpÁ„o inv·lida!\n" << RESET;
+                    cout << RED << "Op√ß√£o inv√°lida!\n" << RESET;
                 }
 
                 cout << YELLOW << "\nDeseja continuar neste menu? (s/n): " << RESET;
@@ -156,17 +162,17 @@ int main() {
                     continue;
                 }
                 case 5: {
-                    loja.criarCarteiraClientes();  
+                    loja.criarCarteiraClientes();
                     cout << GREEN << "Carteira de clientes criada com sucesso.\n" << RESET;
                     break;
                 }
                 case 6: {
-                    loja.carregarCarteiraClientes();  
+                    loja.carregarCarteiraClientes();
                     cout << GREEN << "Carteira de clientes carregada com sucesso.\n" << RESET;
                     break;
                 }
                 default:
-                    cout << RED << "OpÁ„o inv·lida!\n" << RESET;
+                    cout << RED << "Op√ß√£o inv√°lida!\n" << RESET;
                 }
 
                 cout << YELLOW << "\nDeseja continuar neste menu? (s/n): " << RESET;
@@ -204,7 +210,7 @@ int main() {
                     loja.listarHistoricoVendas();
                     break;
                 default:
-                    cout << RED << "OpÁ„o inv·lida!\n" << RESET;
+                    cout << RED << "Op√ß√£o inv√°lida!\n" << RESET;
                 }
 
                 cout << YELLOW << "\nPressione Enter para voltar..." << RESET;
@@ -222,7 +228,7 @@ int main() {
             break;
 
         default:
-            cout << RED << "OpÁ„o inv·lida!\n" << RESET;
+            cout << RED << "Op√ß√£o inv√°lida!\n" << RESET;
         }
 
         system("pause");
